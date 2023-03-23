@@ -1,9 +1,12 @@
-from langchain.llms import OpenAI
+from langchain.llms import OpenAI, openai
 from langchain.chains import LLMChain
 from langchain.prompts import PromptTemplate
 from langchain.chains import SimpleSequentialChain
 import sys
 import os
+from dotenv import load_dotenv
+load_dotenv()
+os.environ.get("OPENAI_API_KEY")
 
 def fact_check(question):
     llm = OpenAI(temperature=0.7)
