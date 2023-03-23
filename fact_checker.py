@@ -3,6 +3,7 @@ from langchain.chains import LLMChain
 from langchain.prompts import PromptTemplate
 from langchain.chains import SimpleSequentialChain
 import sys
+import os
 
 def fact_check(question):
     llm = OpenAI(temperature=0.7)
@@ -35,7 +36,8 @@ if __name__=="__main__":
     if len(sys.argv) > 1:
         question = sys.argv[1]
     else:
-        question = "What type of mammal lays the biggest eggs?"
+        question = f"Your question is: {input()}\n"
     print(question)
     answer = fact_check(question)
     print(answer)
+
