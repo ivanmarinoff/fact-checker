@@ -1,6 +1,8 @@
 # fact checking with prompt chaining
 
-This repo is a simple demonstration of using [langchain](https://github.com/hwchase17/langchain) to do fact-checking with prompt chaining. How it works:
+This repo is a simple demonstration of using [langchain](https://github.com/hwchase17/langchain) \
+and concept by [Jasper](https://twitter.com/0xjasper) to do fact-checking with prompt chaining. \
+How it works:
 - you ask your desired LLM a question
 - the LLM generates an initial answer to the question
 - the LLM self-interrogates what the assumptions were that went into that answer
@@ -8,14 +10,25 @@ This repo is a simple demonstration of using [langchain](https://github.com/hwch
 - the LLM generates a new answer to the question, incorporating the new information
 
 ## to run
+We using OpenAI’s APIs, so we will first need to install their SDK:
+`pip install openai`
+
+In advance, in the root directory of the project, you need to create an `.env` \
+file with the recorded value of your preston API key.
+Then import your personal API key using this command:
+`import os`\
+`from dotenv import load_dotenv`\
+`load_dotenv()`\
+`os.environ.get("OPENAI_API_KEY")`
+Also, follow these API key security recommendations:
+`https://help.openai.com/en/articles/5112595-best-practices-for-api-key-safety`
 
 Make sure you have langchain installed (`pip install langchain`). Then run
 
 `python3 fact_checker.py 'insert question here'`
 
-*Be sure to wrap your question in quotes if you're passing it as a command line argument.*
-
-Alternatively, you can use the provided `fact_checker.ipynb` notebook.
+*Be sure to wrap your question in quotes if you're passing it as a command line argument,\
+or use the direct way I added to write questions in the input console.*
 
 ## example
 
