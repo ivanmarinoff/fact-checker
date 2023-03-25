@@ -19,7 +19,7 @@ Then import your personal API key using this command:
 `import os`\
 `from dotenv import load_dotenv`\
 `load_dotenv()`\
-`os.environ.get("OPENAI_API_KEY")`
+`os.environ.get("OPENAI_API_KEY")`\
 Also, follow these API key security recommendations:
 `https://help.openai.com/en/articles/5112595-best-practices-for-api-key-safety`
 
