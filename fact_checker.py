@@ -8,9 +8,24 @@ from langchain.callbacks import get_openai_callback
 import sys
 import os
 from dotenv import load_dotenv
+import streamlit as st
 
 load_dotenv()
 os.environ.get("OPENAI_API_KEY")
+
+#  # This is a config to streamlit
+# st.set_page_config(page_title="Fact Checker", page_icon=":robot:", layout="centered")
+# st.header("Fact Checker")
+#
+#
+# def get_text():
+#     input_text = st.text_area(label="Enter question", key="input_text")
+#     return input_text
+#
+# input_text = get_text()
+#
+# st.markdown("## Answer is:")
+
 
 
 def fact_check(question):
@@ -50,8 +65,15 @@ if __name__ == "__main__":
     print(question)
     answer = fact_check(question)
     print(answer)
+    # st.markdown(answer)
+    # if input_text:
+    #     formatted_answer = fact_check(question=answer)
+    #
+    #     st.write(answer)
 
     llm = OpenAI(model_name="text-davinci-002", n=2, best_of=2)
     with get_openai_callback() as cb:
         result = llm(question)
         print(f"Token Usage Tracking: {cb.total_tokens}")
+
+
